@@ -20,6 +20,7 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="UPDATE_TYPE" value="REBASE" />
   </component>
   <component name="ProjectId" id="1XBsKblTtyfmcTZqswGEGg65beG" />
   <component name="ProjectViewState">
@@ -100,6 +101,10 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="499" y="160" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1536.824@0.0.1536.824" timestamp="1582266251552" />
+    <state x="417" y="8" key="CommitChangelistDialog2" timestamp="1583823837136">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="417" y="8" key="CommitChangelistDialog2/0.0.1536.824@0.0.1536.824" timestamp="1583823837136" />
     <state x="549" y="168" key="FileChooserDialogImpl" timestamp="1582933092151">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
@@ -144,6 +149,10 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="470" y="238" key="com.intellij.ide.util.TipDialog/0.0.1536.824@0.0.1536.824" timestamp="1580530767823" />
+    <state x="578" y="330" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1583823807217">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="578" y="330" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1536.824@0.0.1536.824" timestamp="1583823807217" />
     <state x="467" y="145" width="672" height="678" key="search.everywhere.popup" timestamp="1581399244804">
       <screen x="0" y="0" width="1536" height="824" />
     </state>

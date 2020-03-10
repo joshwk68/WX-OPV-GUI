@@ -39,15 +39,15 @@ class panel(wx.Panel):
         self.SetSizer(self.sizer)
 
 
-def calculate_values(data):
-    Ldata = dataframe(data)
-    JVinterp = interp1d(Ldata[:, 0], Ldata[:, 2], kind='cubic', bounds_error=False, fill_value='extrapolate')
-    JscL = -JVinterp(0)
-    VocL = fsolve(JVinterp, .95 * max(Ldata[:, 0]))
-    PPV = fmin(lambda x: x * JVinterp(x), .8 * VocL, disp=False)
-    PCE = -PPV * JVinterp(PPV)
-    FF = PCE / (JscL * VocL) * 100
-    return PCE, VocL, JscL, FF
+# def calculate_values(data):
+#     Ldata = dataframe(data)
+#     JVinterp = interp1d(Ldata[:, 0], Ldata[:, 2], kind='cubic', bounds_error=False, fill_value='extrapolate')
+#     JscL = -JVinterp(0)
+#     VocL = fsolve(JVinterp, .95 * max(Ldata[:, 0]))
+#     PPV = fmin(lambda x: x * JVinterp(x), .8 * VocL, disp=False)
+#     PCE = -PPV * JVinterp(PPV)
+#     FF = PCE / (JscL * VocL) * 100
+#     return PCE, VocL, JscL, FF
 
 class Main(wx.Frame):
     def __init__(self):
