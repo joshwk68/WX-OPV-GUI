@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="aadabd8a-cf6f-4c04-9e25-63365406c1a9" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/WX OPV GUI.py" beforeDir="false" afterPath="$PROJECT_DIR$/WX OPV GUI.py" afterDir="false" />
     </list>
@@ -94,37 +93,56 @@
       <option name="presentableId" value="Default" />
       <updated>1580530758523</updated>
     </task>
+    <task id="LOCAL-00001" summary="removed top panel">
+      <created>1583823745912</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1583823745912</updated>
+    </task>
+    <task id="LOCAL-00002" summary="removed top panel">
+      <created>1583823877590</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1583823877590</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="removed top panel" />
+    <option name="LAST_COMMIT_MESSAGE" value="removed top panel" />
   </component>
   <component name="WindowStateProjectService">
     <state x="499" y="160" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1582266251552">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="499" y="160" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1536.824@0.0.1536.824" timestamp="1582266251552" />
-    <state x="417" y="8" key="CommitChangelistDialog2" timestamp="1583823837136">
+    <state x="417" y="8" key="CommitChangelistDialog2" timestamp="1583823876473">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="417" y="8" key="CommitChangelistDialog2/0.0.1536.824@0.0.1536.824" timestamp="1583823837136" />
+    <state x="417" y="8" key="CommitChangelistDialog2/0.0.1536.824@0.0.1536.824" timestamp="1583823876473" />
     <state x="549" y="168" key="FileChooserDialogImpl" timestamp="1582933092151">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="549" y="168" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1582933092151" />
-    <state width="1515" height="195" key="GridCell.Tab.0.bottom" timestamp="1583823064652">
+    <state width="1515" height="244" key="GridCell.Tab.0.bottom" timestamp="1584242584884">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1515" height="195" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1583823064652" />
-    <state width="1515" height="195" key="GridCell.Tab.0.center" timestamp="1583823064652">
+    <state width="1515" height="244" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1584242584884" />
+    <state width="1515" height="244" key="GridCell.Tab.0.center" timestamp="1584242584884">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1515" height="195" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1583823064652" />
-    <state width="1515" height="195" key="GridCell.Tab.0.left" timestamp="1583823064652">
+    <state width="1515" height="244" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1584242584884" />
+    <state width="1515" height="244" key="GridCell.Tab.0.left" timestamp="1584242584884">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1515" height="195" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1583823064652" />
-    <state width="1515" height="195" key="GridCell.Tab.0.right" timestamp="1583823064652">
+    <state width="1515" height="244" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1584242584884" />
+    <state width="1515" height="244" key="GridCell.Tab.0.right" timestamp="1584242584884">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1515" height="195" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1583823064652" />
+    <state width="1515" height="244" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1584242584884" />
     <state width="1364" height="242" key="GridCell.Tab.1.bottom" timestamp="1581129193420">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
@@ -145,14 +163,18 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="277" y="56" key="SettingsEditor/0.0.1536.824@0.0.1536.824" timestamp="1582266279533" />
+    <state x="361" y="146" key="Vcs.Push.Dialog.v2" timestamp="1583823887996">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="361" y="146" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1583823887996" />
     <state x="470" y="238" key="com.intellij.ide.util.TipDialog" timestamp="1580530767823">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="470" y="238" key="com.intellij.ide.util.TipDialog/0.0.1536.824@0.0.1536.824" timestamp="1580530767823" />
-    <state x="578" y="330" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1583823807217">
+    <state x="578" y="330" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1585585550400">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="578" y="330" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1536.824@0.0.1536.824" timestamp="1583823807217" />
+    <state x="578" y="330" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1536.824@0.0.1536.824" timestamp="1585585550400" />
     <state x="467" y="145" width="672" height="678" key="search.everywhere.popup" timestamp="1581399244804">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
