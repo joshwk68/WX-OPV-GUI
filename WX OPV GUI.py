@@ -28,15 +28,8 @@ from decimal import Decimal
 import plotly.graph_objs as go
 
 class panel(wx.Panel):
-    def __init__(self, parent, data):
+    def __init__(self, parent, data, vals):
         wx.Panel.__init__(self, parent=parent, style=wx.BORDER_RAISED, size=(350, 50))
-        JVinterp = interp1d(data[:, 0], data[:, 2], kind='cubic', bounds_error=False, fill_value='extrapolate')
-        JscL = -JVinterp(0)
-        VocL = fsolve(JVinterp, .95*max(data[:, 0]))
-        PPV = fmin(lambda x: x*JVinterp(x), .8 * VocL, disp=False)
-        PCE = -PPV * JVinterp(PPV)
-        FF = PCE / (JscL * VocL) * 100
-        datas = [PCE, VocL, JscL, FF]
         self.figure = Figure()
         self.axes = self.figure.add_subplot(111, xlabel='$Voltage\ [V]$', ylabel='$Current\ Density\ [mA/cm^2]$', ylim=(-20, 5), xlim=(0, 1.3))
         default_figsize = mpl.rcParamsDefault['figure.figsize']
@@ -47,7 +40,10 @@ class panel(wx.Panel):
 
         mpl.rc('font', **font)
         mpl.rc('axes', linewidth=3)
-
+        PCE = vals[0]
+        VocL = vals[1]
+        JscL = vals[2]
+        FF = vals[3]
         datas = [PCE, VocL, JscL, FF]
         n_rows = len(datas)
         rows = ['$PCE\ [\%]$', '$V_{OC}\ [V]$', '$J_{SC}\ [mA/cm^2]$', '$FF\ [\%]$']
@@ -74,44 +70,53 @@ class Main(wx.Frame):
         wx.Frame.__init__(self, parent=None, title="JV Curves", size=(1200, 1200))
 
         self.plots = [0,0,0,0,0,0,0,0]
+        self.vals = [0,0,0,0,0,0,0,0]
         self.list_ctrl = wx.ListCtrl(self, style=wx.LC_REPORT | wx.BORDER_SUNKEN)
         self.list_ctrl.InsertColumn(0, 'Filename')
 
+        self.plots = self.onOpenDirectory()
+        self.vals = self.calcVals(self.plots)
         # btn = wx.Button(self, label="Open Folder")
         # btn.Bind(wx.EVT_BUTTON, self.onOpenDirectory)
-        self.plots = self.onOpenDirectory()
+        btn = wx.Button(self, label="Export Values")
+        btn.Bind(wx.EVT_BUTTON, self.onClick(self.vals))
+
 
         sizer = wx.BoxSizer(wx.VERTICAL)
         sizer.Add(self.list_ctrl, 1, wx.ALL | wx.EXPAND, 5)
-        # sizer.Add(btn, 0, wx.ALL | wx.CENTER, 5)
+        sizer.Add(btn, 0, wx.ALL | wx.CENTER, 5)
         self.SetSizer(sizer)
 
         self.sp = wx.SplitterWindow(self)
-        panel1 = panel(self.sp, self.plots[0])
-        panel2 = panel(self.sp, self.plots[1])
+        panel1 = panel(self.sp, self.plots[0], self.vals[0])
+        panel2 = panel(self.sp, self.plots[1], self.vals[1])
         self.sp.SplitVertically(panel1, panel2)
         self.sp2 = wx.SplitterWindow(self)
-        panel3 = panel(self.sp2, self.plots[2])
-        panel4 = panel(self.sp2, self.plots[3])
+        panel3 = panel(self.sp2, self.plots[2], self.vals[2])
+        panel4 = panel(self.sp2, self.plots[3], self.vals[3])
         self.sp2.SplitVertically(panel3, panel4)
         self.sp3 = wx.SplitterWindow(self)
-        panel5 = panel(self.sp3, self.plots[4])
-        panel6 = panel(self.sp3, self.plots[5])
+        panel5 = panel(self.sp3, self.plots[4], self.vals[4])
+        panel6 = panel(self.sp3, self.plots[5], self.vals[5])
         self.sp3.SplitVertically(panel5, panel6)
         self.sp4 = wx.SplitterWindow(self)
-        panel7 = panel(self.sp4, self.plots[6])
-        panel8 = panel(self.sp4, self.plots[7])
+        panel7 = panel(self.sp4, self.plots[6], self.vals[6])
+        panel8 = panel(self.sp4, self.plots[7], self.vals[7])
         self.sp4.SplitVertically(panel7, panel8)
 
         sizer.Add(self.sp, 1, wx.EXPAND)
         sizer.Add(self.sp2, 1, wx.EXPAND)
         sizer.Add(self.sp3, 1, wx.EXPAND)
         sizer.Add(self.sp4, 1, wx.EXPAND)
-        self.scroll = wx.lib.scrolledpanel.ScrolledPanel(self, -1, size=(screenWidth, 400), pos=(0, 28),
-                                                    style=wx.SIMPLE_BORDER)
-        self.SetupScrolling()
+
         self.SetAutoLayout(True)
         self.Layout()
+
+    def onClick(self, vals):
+        return_text = ['PCE ', ' VocL ', ' Jsc ', ' FF ']
+        total_return = []
+        filename = "output"
+        np.savetxt(filename, self.vals, delimiter=" ", fmt="%s", header='PCE, VocL, Jsc, FF')
 
     def onOpenDirectory(self):
         dlg = wx.DirDialog(self, "Choose a directory:")
@@ -121,6 +126,16 @@ class Main(wx.Frame):
         dlg.Destroy()
         return self.plots
 
+    def calcVals(self, plots):
+        for i in range(0,8):
+            JVinterp = interp1d(self.plots[i][:, 0], self.plots[i][:, 2], kind='cubic', bounds_error=False, fill_value='extrapolate')
+            JscL = -JVinterp(0)
+            VocL = fsolve(JVinterp, .95 * max(self.plots[i][:, 0]))
+            PPV = fmin(lambda x: x * JVinterp(x), .8 * VocL, disp=False)
+            PCE = -PPV * JVinterp(PPV)
+            FF = PCE / (JscL * VocL) * 100
+            self.vals[i] = [PCE.item(), VocL.item(), JscL.item(), FF.item()]
+        return self.vals
 
     def updateDisplay(self, folder_path):
         paths = glob.glob(self.folder_path + "/*.liv1")
